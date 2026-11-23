@@ -1,0 +1,45 @@
+# Local environment files. Keep the template available for cloning.
+.env
+.env.*
+!.env.example
+
+# JavaScript and Next.js output
+node_modules/
+.next/
+.vercel/
+/out/
+/build/
+/dist/
+tsconfig.tsbuildinfo
+
+# Python environments, bytecode and test/tool caches
+/.venv/
+/venv/
+/env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+/coverage/
+/htmlcov/
+
+# Local training data and generated evaluation state
+/phishing_site_urls.csv
+/evaluation_checkpoints/
+.ipynb_checkpoints/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Local IDE and operating-system metadata
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 280px;
+  padding: 15px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+  color: #222;
+}
+
+input {
+  width: 100%;
+  padding: 6px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+  color: #52665b;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+button {
+  width: 48%;
+  padding: 6px;
+  margin: 4px 1%;
+  border: none;
+  border-radius: 6px;
+  background-color: #0066cc;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #004c99;
+}
+
+#result {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.safe {
+  background: #d4edda;
+  color: #155724;
+}
+
+.malicious {
+  background: #f8d7da;
+  color: #721c24;
+}
