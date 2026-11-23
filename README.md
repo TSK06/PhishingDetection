@@ -5,7 +5,8 @@ machine-learning model. The Next.js interface can call a local FastAPI service
 or a Python function under `api/`. A Firefox extension and a Streamlit interface
 are also included.
 
-> This is a URL classification signal, not a guarantee that a website is safe.
+> This is a very messy project and I'm working on cleaning it up :)
+>  This is a URL classification signal, not a guarantee that a website is safe.
 > LinkLens does not open or scan the destination website.
 
 ## Screenshots and demo
