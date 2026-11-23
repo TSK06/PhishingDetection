@@ -7,6 +7,32 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
+<<<<<<< HEAD
+=======
+from dotenv import load_dotenv
+load_dotenv()
+
+
+
+##Groq
+from groq import Groq
+import os
+
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+def chatbot_response(user_input):
+    response = client.chat.completions.create(
+        model= "llama-3.3-70b-versatile",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant specialized in phishing detection and cybersecurity. Keep answers short and clear."},
+            {"role": "user", "content": user_input},
+        ],
+    )
+    return response.choices[0].message.content
+
+
+
+>>>>>>> cbbf5d3c2d9da247cbfc2a4f115d31cdac9691a8
 # If classifier is GridSearchCV, unwrap it
 model = getattr(classifier, "best_estimator_", classifier)
 
@@ -62,9 +88,15 @@ def update_stats(url, label):
 
 
 def main():
+<<<<<<< HEAD
     st.title("🔐 Phishing URL Detection")
 
     menu = st.sidebar.selectbox("Choose View", ["Check URL", "Dashboard"])
+=======
+    st.title("🔐 Phishing Domain and Malicious URL Detection")
+
+    menu = st.sidebar.selectbox("Choose View", ["Check URL", "Dashboard", "AI Chatbot Assistant"])
+>>>>>>> cbbf5d3c2d9da247cbfc2a4f115d31cdac9691a8
 
     if menu == "Check URL":
         url = st.text_input("Enter URL", "https://www.example.com/")
@@ -103,5 +135,37 @@ def main():
         data = {"Safe": st.session_state.safe, "Malicious": st.session_state.malicious}
         st.bar_chart(pd.DataFrame.from_dict(data, orient="index", columns=["Count"]))
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     main()
+=======
+    elif menu == "AI Chatbot Assistant":
+        st.header("💬 AI Chatbot Assistant ")
+
+        # Initialize chat history if not present
+        if "chat_history" not in st.session_state:
+            st.session_state.chat_history = []
+
+        # User input
+        user_q = st.text_input("What would you like to know?", key="chat_input")
+
+        if st.button("Send", key="send_chat"):
+            if user_q:
+                reply = chatbot_response(user_q)  # Call your AI function
+                st.session_state.chat_history.append(("You", user_q))
+                st.session_state.chat_history.append(("AI", reply))
+                st.rerun()  # Refresh to show new messages
+
+    # Show conversation in the main page
+        chat_display = "\n".join([f"{speaker}: {msg}" for speaker, msg in st.session_state.chat_history])
+        st.text_area("Conversation", value=chat_display, height=300)
+
+    # Optional: reset button
+        if st.button("Reset Conversation", key="reset_chat"):
+            st.session_state.chat_history = []
+            st.rerun()
+
+
+if __name__ == "__main__":
+    main()
+>>>>>>> cbbf5d3c2d9da247cbfc2a4f115d31cdac9691a8
